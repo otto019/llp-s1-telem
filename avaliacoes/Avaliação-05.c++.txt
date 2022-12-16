@@ -1,0 +1,21 @@
+//Cria um programa que receba dados via teclado e grave em um arquivo.
+#include <stdio.h>
+#define FONTE 100
+
+int main()
+{
+	char texto[FONTE], exit;
+	FILE* fp;
+	
+	printf("Escreva o texto que deseja usar no arquivo");
+	fgets(texto, FONTE, stdin);
+	if((fp = fopen("arquivo.txt", "W"))==NULL)
+	{ printf( " falha ao abrir o arquivo.");
+	exit(1);
+	
+	}
+	fputs(texto, fp);
+	fclose(fp);
+	
+	return 0;
+}
